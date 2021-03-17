@@ -1,6 +1,6 @@
 {
   "name": "discord.js-zed",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Make a discord bot with style! Includes Utilities!",
   "main": "index.js",
   "scripts": {
@@ -18,5 +18,13 @@
     "chalk": "^4.1.0",
     "discord.js": "^12.5.1"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zedxos/discord.js-zed-1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zedxos/discord.js-zed-1/issues"
+  },
+  "homepage": "https://github.com/zedxos/discord.js-zed-1#readme"
 }
