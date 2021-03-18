@@ -126,6 +126,24 @@ module.exports.disjoinVC = async function(msg) {
 		msg.guild.me.voice.channel.leave()
 	}
 }
+module.exports.createGuild = async function(Client, Name) {
+	if(!Client) {
+		ErrorHandler.not_specified('Client')
+	} else if(!Name) {
+		ErrorHandler.not_specified('Server Name')
+	} else {
+      const Guild = await Client.guilds.create(Name, {
+          channels: [
+              {"name": "invite-channel"},
+          ]
+      });
+
+      const GuildChannel = Guild.channels.cache.find(channel => channel.name == "invite-channel");
+      const Invite = await GuildChannel.createInvite({maxAge: 0, unique: true, reason: "Testing."})
+
+      return Invite.url
+	}
+}
 /*
 ZedDjs = {
   connect: function (Client, Token) {

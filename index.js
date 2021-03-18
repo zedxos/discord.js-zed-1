@@ -15,7 +15,8 @@ module.exports.Client = class {
   	this.animatedEmoteRegex = Util.animatedEmoteRegex,
   	this.emoteRegex = Util.emoteRegex,
   	this.joinVC = Util.joinVC,
-  	this.disjoinVC = Util.disjoinVC
+  	this.disjoinVC = Util.disjoinVC,
+  	this.createGuild = Util.createGuild
   	if(Log) {
   	if(typeof Log !== 'boolean') {
   		ErrorHandler.incorrect_option('log option')

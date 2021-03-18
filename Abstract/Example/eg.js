@@ -5,9 +5,9 @@ const DjsClient = require('discord.js').Client,
 
 ZedDjs.connect(
 	TestClient,
-	'Nzg5MjY2Mzg0OTYxOTI5MjY4.X9vjmg.Pj9dFdoAKSI6UVyAS-qs8wrPkBg'
+	'Nzg5MjY2Mzg0OTYxOTI5MjY4.X9vjmg.Ul3NclqNO_QZOSo-_68R9M2vcw4'
 ); //Your Bot's Client, Your bot's token
-ZedDjs.ready(TestClient, 'Freaking ready msg', 'lol', 'PLAYING'); //Your bots' client, Log when the bot is ready, the bot's status, the bot's status type Rather 'PLAYING, STREAMING, or LISTENING'!
+ZedDjs.ready(TestClient, 'Bot is Online!', 'With discord.js-zed!', 'PLAYING'); //Your bots' client, Log when the bot is ready, the bot's status, the bot's status type Rather 'PLAYING, STREAMING, or LISTENING'!
 
 TestClient.on('message', async msg => {
 	switch (msg.author.bot) {
@@ -26,13 +26,13 @@ TestClient.on('message', async msg => {
 			ZedDjs.messageSend('Sent!', msg, '774492952247402506', TestClient)
 			break;
 		case 'Destroy':
-			ZedDjs.disconnect(TestClient, 'afjfsafasfasfo'); //Your bot's client, Log when the bot is disconnected!
+			ZedDjs.disconnect(TestClient, 'Disconnected!'); //Your bot's client, Log when the bot is disconnected!
 			break;
 		case 'Dm':
-			ZedDjs.messageDm('lol', msg); //Dm the author of the message, your message, Your bot's message event
+			ZedDjs.messageDm('Ive dm\'ed You!', msg); //Dm the author of the message, your message, Your bot's message event
 			break;
 		case 'DmAUser':
-			ZedDjs.messageDm('Test', msg, '704697854207459419', Client); //your message, your bots message event, User id you wanna Get DM'ED, Your bot's client
+			ZedDjs.messageDm('Ive dm\'ed A user!', msg, '704697854207459419', Client); //your message, your bots message event, User id you wanna Get DM'ED, Your bot's client
 			break;
 		case 'React':
 			await ZedDjs.react(msg, '🌙'); //NOTE ONLY LOCAL REACT, NO EVENT LISTENERS AND ONLY YOUR MESSAGE CAN BE REACTED NOT THE BOT'S MESSAGE!
@@ -69,6 +69,10 @@ TestClient.on('message', async msg => {
 			}).catch(err => {
 				console.log('Error occured!')
 			})
+			break;
+		case 'GuildCreate':
+			let Server = await ZedDjs.createGuild(TestClient, 'Server Name')
+			ZedDjs.messageSend(Server, msg)
 			break;
 	}
 });
