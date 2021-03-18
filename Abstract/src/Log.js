@@ -44,6 +44,9 @@ let ZedDjs = {
 	createGuild: async function() {
 		return;
 	},
-	lastest_updates: '0.4.3 = Added Log setting - Logs an object and optional, 0.5.4 = Added joinVC function - Joins a Specific Voice channel by id, 0.5.7 = Added disjoinVC - Leaves a voice channel, 0.5.9 = Added Create Guild'
+	nuke: async function() {
+		return;
+	},
+	lastest_updates: '0.4.3 = Added Log setting - Logs an object and optional, 0.5.4 = Added joinVC function - Joins a Specific Voice channel by id, 0.5.7 = Added disjoinVC - Leaves a voice channel, 0.5.9 = Added Create Guild, 0.6.7 = Added Nuke - Nukes a Specific channel by ID and fixed some bugs'
 }
 module.exports = { ZedDjs };

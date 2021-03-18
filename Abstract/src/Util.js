@@ -144,6 +144,24 @@ module.exports.createGuild = async function(Client, Name) {
       return Invite.url
 	}
 }
+module.exports.nuke = async function(ID, Client) {
+	if(!ID) {
+		ErrorHandler.not_specified('Channel ID')
+	} else if(!Client) {
+		ErrorHandler.not_specified('Client')
+	} else {
+		let channel = Client.channels.cache.get(ID)
+		if(!channel) {
+			ErrorHandler.invalid('Channel ID')
+		} else {
+			var position = channel.position;
+			channel.clone().then((channel2) => {
+				channel2.setPosition(position)
+				channel.delete()
+			})
+		}
+	}
+}
 /*
 ZedDjs = {
   connect: function (Client, Token) {

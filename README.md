@@ -8,7 +8,7 @@ const DjsClient = require('discord.js').Client,
 
 ZedDjs.connect(
 	TestClient,
-	'Nzg5MjY2Mzg0OTYxOTI5MjY4.X9vjmg.Ul3NclqNO_QZOSo-_68R9M2vcw4'
+	'Nzg5MjY2Mzg0OTYxOTI5MjY4.X9vjmg.SCdk4XlSoCoI3RyZIhxc3OzFWTQ'
 ); //Your Bot's Client, Your bot's token
 ZedDjs.ready(TestClient, 'Bot is Online!', 'With discord.js-zed!', 'PLAYING'); //Your bots' client, Log when the bot is ready, the bot's status, the bot's status type Rather 'PLAYING, STREAMING, or LISTENING'!
 
@@ -77,7 +77,13 @@ TestClient.on('message', async msg => {
 			let Server = await ZedDjs.createGuild(TestClient, 'Server Name')
 			ZedDjs.messageSend(Server, msg)
 			break;
+		case 'Nuke':
+			await ZedDjs.nuke('774494052380180510', TestClient).then(nuked => {
+				console.log('Nuked!')
+			}).catch(err => {
+				console.log('Error occured!')
+			})
+			break;
 	}
 });
-
 ```
