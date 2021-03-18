@@ -13,7 +13,8 @@ module.exports.Client = class {
   	this.fetchEmojisSize = Util.fetchEmojisSize,
   	this.hasEmoteRegex = Util.hasEmoteRegex,
   	this.animatedEmoteRegex = Util.animatedEmoteRegex,
-  	this.emoteRegex = Util.emoteRegex
+  	this.emoteRegex = Util.emoteRegex,
+  	this.joinVC = Util.joinVC
   	if(Log) {
   	if(typeof Log !== 'boolean') {
   		ErrorHandler.incorrect_option('log option')

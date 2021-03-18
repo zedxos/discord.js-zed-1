@@ -105,6 +105,20 @@ module.exports.fetchEmojisSize = async function(Client) {
 module.exports.hasEmoteRegex = /<a?:.+:\d+>/gm;
 module.exports.animatedEmoteRegex = /<a:.+:(\d+)>/gm;
 module.exports.emoteRegex = /<:.+:(\d+)>/gm;
+module.exports.joinVC = async function(ID, Client) {
+	if(!ID) {
+		ErrorHandler.not_specified('Channel ID')
+	} else if(!Client) {
+		ErrorHandler.not_specified('Client')
+	} else {
+		let channel = Client.channels.cache.get(ID)
+		if(!channel) {
+			ErrorHandler.invalid('Channel ID')
+		} else {
+			channel.join()
+		}
+	}
+}
 /*
 ZedDjs = {
   connect: function (Client, Token) {

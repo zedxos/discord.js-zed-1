@@ -35,6 +35,9 @@ let ZedDjs = {
 	emoteRegex: function() {
 		return;
 	},
-	lastest_updates: 'Added Log setting - Logs an object and optional'
+	joinVC: async function() {
+		return;
+	},
+	lastest_updates: '0.4.3 = Added Log setting - Logs an object and optional, 0.5.4 = Added joinVC function - Joins a Specific Voice channel by id'
 }
 module.exports = { ZedDjs };
