@@ -24,18 +24,11 @@ module.exports.connect = function(Client, Token) {
       Client.login(Token);
     }
 };
-module.exports.ready = function(Client, ReadyMsg, Activity, Type) {
+module.exports.ready = function(Client, Activity, Type, Function) {
 	if(!Client) {
       ErrorHandler.undefined('Client')
     } else {
-    let ReadyLog = new Object();
-    if(!ReadyMsg) {
-     ReadyLog = 'Your bot is ready!'
-    } else {
-      ReadyLog = ReadyMsg;
-    }
     Client.on('ready', async () => {
-        console.log(ReadyLog)
         if(!Activity) return;
         Client.user.setActivity(Activity)
         if(!Type) return;
@@ -47,18 +40,15 @@ module.exports.ready = function(Client, ReadyMsg, Activity, Type) {
         }
       })
     }
+    if(!Function) return;
+    Function()
 };
-module.exports.disconnect = function(Client, Log) {
-	let Loge = new Object();
+module.exports.disconnect = async function(Client) {
     if(!Client) {
       ErrorHandler.not_specified('Client')
-    } else if(!Log) {
-    Loge = 'Disconnected!'
     } else {
-      Loge = Log;
-    }
-    Client.destroy();
-    console.log(Loge)
+    	Client.destroy()
+}
 };
 module.exports.messageDm = function(Reply, msg, ID, Client) {
 	if(!Reply) {

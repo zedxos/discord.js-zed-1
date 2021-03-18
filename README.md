@@ -8,9 +8,12 @@ const DjsClient = require('discord.js').Client,
 
 ZedDjs.connect(
 	TestClient,
-	'Nzg5MjY2Mzg0OTYxOTI5MjY4.X9vjmg.SCdk4XlSoCoI3RyZIhxc3OzFWTQ'
+	'Nzg5MjY2Mzg0OTYxOTI5MjY4.X9vjmg.j7idWfNHDv0Wc-grLQ8ZQ7zC2wo'
 ); //Your Bot's Client, Your bot's token
-ZedDjs.ready(TestClient, 'Bot is Online!', 'With discord.js-zed!', 'PLAYING'); //Your bots' client, Log when the bot is ready, the bot's status, the bot's status type Rather 'PLAYING, STREAMING, or LISTENING'!
+function ReadyforZedDjs() {
+	console.log('Bot is ready!')
+}
+ZedDjs.ready(TestClient, 'With discord.js-zed!', 'PLAYING', ReadyforZedDjs)//Your bots' client, the bot's status, the bot's status type Rather 'PLAYING, STREAMING, or LISTENING', ANY FUNCTION!
 
 TestClient.on('message', async msg => {
 	switch (msg.author.bot) {
@@ -29,7 +32,9 @@ TestClient.on('message', async msg => {
 			ZedDjs.messageSend('Sent!', msg, '774492952247402506', TestClient)
 			break;
 		case 'Destroy':
-			ZedDjs.disconnect(TestClient, 'Disconnected!'); //Your bot's client, Log when the bot is disconnected!
+			await ZedDjs.disconnect(TestClient).then(disconnected => {
+			console.log('Destroyed!')	
+			}) //Your bot's client
 			break;
 		case 'Dm':
 			ZedDjs.messageDm('Ive dm\'ed You!', msg); //Dm the author of the message, your message, Your bot's message event
@@ -86,4 +91,5 @@ TestClient.on('message', async msg => {
 			break;
 	}
 });
+
 ```
