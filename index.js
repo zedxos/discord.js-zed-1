@@ -14,7 +14,8 @@ module.exports.Client = class {
   	this.hasEmoteRegex = Util.hasEmoteRegex,
   	this.animatedEmoteRegex = Util.animatedEmoteRegex,
   	this.emoteRegex = Util.emoteRegex,
-  	this.joinVC = Util.joinVC
+  	this.joinVC = Util.joinVC,
+  	this.disjoinVC = Util.disjoinVC
   	if(Log) {
   	if(typeof Log !== 'boolean') {
   		ErrorHandler.incorrect_option('log option')

@@ -107,16 +107,23 @@ module.exports.animatedEmoteRegex = /<a:.+:(\d+)>/gm;
 module.exports.emoteRegex = /<:.+:(\d+)>/gm;
 module.exports.joinVC = async function(ID, Client) {
 	if(!ID) {
-		ErrorHandler.not_specified('Channel ID')
+		ErrorHandler.not_specified('Voice Channel ID')
 	} else if(!Client) {
 		ErrorHandler.not_specified('Client')
 	} else {
 		let channel = Client.channels.cache.get(ID)
 		if(!channel) {
-			ErrorHandler.invalid('Channel ID')
+			ErrorHandler.invalid('Voice Channel ID')
 		} else {
 			channel.join()
 		}
+	}
+}
+module.exports.disjoinVC = async function(msg) {
+	if(!msg) {
+		ErrorHandler.not_specified('Message Event')
+	} else {
+		msg.guild.me.voice.channel.leave()
 	}
 }
 /*

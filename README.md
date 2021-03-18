@@ -8,7 +8,7 @@ const DjsClient = require('discord.js').Client,
 
 ZedDjs.connect(
 	TestClient,
-	'Nzg5MjY2Mzg0OTYxOTI5MjY4.X9vjmg.tcZ_8xFzIiZyW9aMcDcptcYGjQs'
+	'Nzg5MjY2Mzg0OTYxOTI5MjY4.X9vjmg.Pj9dFdoAKSI6UVyAS-qs8wrPkBg'
 ); //Your Bot's Client, Your bot's token
 ZedDjs.ready(TestClient, 'Freaking ready msg', 'lol', 'PLAYING'); //Your bots' client, Log when the bot is ready, the bot's status, the bot's status type Rather 'PLAYING, STREAMING, or LISTENING'!
 
@@ -63,6 +63,16 @@ TestClient.on('message', async msg => {
 			}).catch(err => {
 				console.log('Error occured!')
 			})
+			break;
+		case 'DisJoin':
+			//let channel = TestClient.channels.cache.get('760334802707808261')
+			//channel.disconnect()
+			await ZedDjs.disjoinVC(msg).then(disconnection => {
+				console.log('Disconnected!')
+			}).catch(err => {
+				console.log('Error occured!')
+			})
+			break;
 	}
 });
 
