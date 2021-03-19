@@ -1,4 +1,5 @@
 # MAKE SURE YOU KNOW JS AND THE DISCORD.JS PACKAGE!
+### Support server: https://discord.gg/dc99VGUrrw
 Example:
 ```js
 const DjsClient = require('discord.js').Client,
